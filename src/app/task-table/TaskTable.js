@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -18,19 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
-export default function TaskTable() {
+const TaskTable = ({ users, tasks }) => {
   const classes = useStyles();
 
   return (
@@ -46,19 +35,26 @@ export default function TaskTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.name}>
+          {users.map(user => (
+            <TableRow key={user}>
               <TableCell component="th" scope="row">
-                {row.name}
+                {user}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right"> - </TableCell>
+              <TableCell align="right"> - </TableCell>
+              <TableCell align="right"> - </TableCell>
+              <TableCell align="right"> - </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </Paper>
   );
-}
+};
+
+TaskTable.propTypes = {
+  users: PropTypes.arrayOf(PropTypes.string).isRequired,
+  tasks: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+
+export default TaskTable;
