@@ -12,6 +12,7 @@
   "dependencies": {
     "@material-ui/core": "^4.3.1",
     "fs": "0.0.1-security",
+    "immutable": "^4.0.0-rc.12",
     "js-yaml": "^3.13.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
@@ -40,5 +41,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "https://www.codewars.com/api/v1"
 }
