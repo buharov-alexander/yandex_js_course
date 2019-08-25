@@ -28,7 +28,7 @@ class TaskTableContainer extends PureComponent {
 function mapStateToProps(state) {
   return {
     users: state.users.users,
-    tasks: state.tasks.tasks,
+    weeks: state.tasks.weeks,
   };
 }
 
