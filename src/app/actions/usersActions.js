@@ -7,7 +7,7 @@ import {
 } from './actionTypes';
 
 const loadTasksForUser = (username, dispatch) => {
-  fetch(`users/${username}/code-challenges/completed?access_key=m2cqV5zGM8vvxkBvWznq`)
+  fetch(`https://j3300l2mej.execute-api.eu-west-1.amazonaws.com/dev/${username}`)
     .then(response => response.json())
     .then(response => dispatch({ type: LOAD_USER_TASKS, payload: { username, tasks: response.data } }));
 };
