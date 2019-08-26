@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/yandex_js_course/static/css/main.1f3b3d93.chunk.css",
-    "main.js": "/yandex_js_course/static/js/main.8cf14a7b.chunk.js",
-    "main.js.map": "/yandex_js_course/static/js/main.8cf14a7b.chunk.js.map",
+    "main.js": "/yandex_js_course/static/js/main.8982c7c7.chunk.js",
+    "main.js.map": "/yandex_js_course/static/js/main.8982c7c7.chunk.js.map",
     "runtime~main.js": "/yandex_js_course/static/js/runtime~main.f2727716.js",
     "runtime~main.js.map": "/yandex_js_course/static/js/runtime~main.f2727716.js.map",
     "static/js/2.53385645.chunk.js": "/yandex_js_course/static/js/2.53385645.chunk.js",
     "static/js/2.53385645.chunk.js.map": "/yandex_js_course/static/js/2.53385645.chunk.js.map",
     "index.html": "/yandex_js_course/index.html",
-    "precache-manifest.f50dcf7d33ab55bf1d9d6f5917eba3ee.js": "/yandex_js_course/precache-manifest.f50dcf7d33ab55bf1d9d6f5917eba3ee.js",
+    "precache-manifest.65702e95fb3c5e6d721d58b85c413ebb.js": "/yandex_js_course/precache-manifest.65702e95fb3c5e6d721d58b85c413ebb.js",
     "service-worker.js": "/yandex_js_course/service-worker.js",
     "static/css/main.1f3b3d93.chunk.css.map": "/yandex_js_course/static/css/main.1f3b3d93.chunk.css.map",
     "static/media/tasks.yaml": "/yandex_js_course/static/media/tasks.4906365e.yaml",
