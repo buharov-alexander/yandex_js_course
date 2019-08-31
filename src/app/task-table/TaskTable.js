@@ -1,6 +1,5 @@
 import React from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import { List } from 'immutable';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -32,18 +31,8 @@ const useStyles = makeStyles(theme => ({
 // eslint-disable-next-line no-confusing-arrow
 const colorClass = (classes, index) => index % 2 === 0 ? classes.grey : null;
 
-const TaskTable = ({ users, weeks }) => {
+const TaskTable = ({ users, weeks, tasks }) => {
   const classes = useStyles();
-  const tasks = weeks.reduce((acc, week) => {
-    const weekTasks = week.tasks.map(task => ({ name: task, weekIndex: week.index }));
-    return acc.concat(weekTasks);
-  }, new List());
-
-  const userResults = users.keySeq().toList().map((username) => {
-    const completedTasks = users.get(username) || new List();
-    const results = tasks.map(task => ({ taskName: task.name, weekIndex: task.weekIndex, result: completedTasks.find(ct => ct.name === task.name) }));
-    return { username, results };
-  });
 
   return (
     <Paper className={classes.root}>
@@ -68,11 +57,11 @@ const TaskTable = ({ users, weeks }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {userResults.map(({ username, results }) => (
+          {users.entrySeq().toList().map(([username, results]) => (
             <TaskTableRow
               key={username}
               username={username}
-              results={results}
+              results={results || tasks}
               weekStyle={index => colorClass(classes, index)}
             />
           ))}
@@ -85,6 +74,7 @@ const TaskTable = ({ users, weeks }) => {
 TaskTable.propTypes = {
   users: ImmutablePropTypes.map.isRequired,
   weeks: ImmutablePropTypes.list.isRequired,
+  tasks: ImmutablePropTypes.list.isRequired,
 };
 
 export default TaskTable;

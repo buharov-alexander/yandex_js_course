@@ -27,7 +27,7 @@ const TaskTableRow = ({ username, results, weekStyle }) => {
         {`${results.filter(taskRes => taskRes.result).size}/${results.size}`}
       </TableCell>
       {results.map(taskRes => (
-        <TableCell className={`${classes.cell} ${weekStyle(taskRes.weekIndex)}`} key={taskRes.taskName}>
+        <TableCell className={`${classes.cell} ${weekStyle(taskRes.weekIndex)}`} key={taskRes.name}>
           {taskRes.result ? '+' : null}
         </TableCell>
       ))}

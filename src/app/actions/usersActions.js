@@ -6,20 +6,21 @@ import {
   LOAD_USER_TASKS,
 } from './actionTypes';
 
-const loadTasksForUser = (username, dispatch) => {
+export const loadTasksForUser = (username, tasks) => (dispatch) => {
   fetch(`users/${username}/code-challenges/completed?access_key=m2cqV5zGM8vvxkBvWznq`)
     .then(response => response.json())
-    .then(response => dispatch({ type: LOAD_USER_TASKS, payload: { username, tasks: response.data } }));
-};
-
-const loadUsers = () => (dispatch) => {
-  fetch(users)
-    .then(response => response.text())
     .then((response) => {
-      const usernames = yaml.safeLoad(response);
-      dispatch({ type: LOAD_USERS, payload: usernames });
-      return usernames;
-    }).then(usernames => usernames.forEach(username => loadTasksForUser(username, dispatch)));
+      const completedTasks = response.data;
+      const results = tasks.map(task => ({ result: completedTasks.find(ct => ct.name === task.name), ...task }));
+
+      dispatch({ type: LOAD_USER_TASKS, payload: { username, tasks: results } });
+    });
 };
 
-export default loadUsers;
+export const loadUsers = dispatch => fetch(users)
+  .then(response => response.text())
+  .then((response) => {
+    const usernames = yaml.safeLoad(response);
+    dispatch({ type: LOAD_USERS, payload: usernames });
+    return usernames;
+  });
