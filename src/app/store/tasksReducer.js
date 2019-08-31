@@ -11,7 +11,7 @@ const initialState = {
 export default function movieReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_TASKS: {
-      const weeks = action.payload.map((tasks, index) => ({ name: `Week ${index + 1}`, tasks }));
+      const weeks = action.payload.map((tasks, index) => ({ name: `Week ${index + 1}`, tasks, index }));
       return Object.assign({}, state, { weeks: new List(weeks) });
     }
     default:

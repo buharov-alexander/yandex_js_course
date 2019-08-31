@@ -15,7 +15,7 @@ export default function TaskTablePage() {
   const classes = useStyles();
 
   return (
-    <Container>
+    <Container maxWidth="xl">
       <Typography className={classes.title} variant="h3" paragraph>
         Yandex JS course 2019
       </Typography>

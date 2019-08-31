@@ -10,9 +10,12 @@ const useStyles = makeStyles(() => ({
     padding: '15px',
     textAlign: 'center',
   },
+  grey: {
+    backgroundColor: '#f5f5f5',
+  },
 }));
 
-const TaskTableRow = ({ username, results }) => {
+const TaskTableRow = ({ username, results, weekStyle }) => {
   const classes = useStyles();
 
   return (
@@ -20,9 +23,12 @@ const TaskTableRow = ({ username, results }) => {
       <TableCell component="th" scope="row">
         {username}
       </TableCell>
-      {results.map(task => (
-        <TableCell className={classes.cell} key={task.taskName}>
-          {task.result ? '+' : null}
+      <TableCell component="th" scope="row">
+        {`${results.filter(taskRes => taskRes.result).size}/${results.size}`}
+      </TableCell>
+      {results.map(taskRes => (
+        <TableCell className={`${classes.cell} ${weekStyle(taskRes.weekIndex)}`} key={taskRes.taskName}>
+          {taskRes.result ? '+' : null}
         </TableCell>
       ))}
     </TableRow>
@@ -32,6 +38,7 @@ const TaskTableRow = ({ username, results }) => {
 TaskTableRow.propTypes = {
   username: PropTypes.string.isRequired,
   results: ImmutablePropTypes.list.isRequired,
+  weekStyle: PropTypes.func.isRequired,
 };
 
 export default TaskTableRow;
