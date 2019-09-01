@@ -13,6 +13,7 @@ module.exports = {
     },
     rules: {
         'react/jsx-filename-extension': ['warn', { 'extensions': ['.js', '.jsx'] }],
+        'react/require-default-props': ['off'],
         'max-len': ['warn', { 'code': 120 }],
     }
 };
