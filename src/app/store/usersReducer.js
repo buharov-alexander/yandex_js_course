@@ -9,7 +9,7 @@ const initialState = {
   users: new Map(),
 };
 
-export default function movieReducer(state = initialState, action) {
+export default function usersReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_USERS: {
       const users = new Map(action.payload.map(username => [username, null]));

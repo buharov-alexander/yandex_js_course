@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-import TaskTableRow from './TaskTableRow';
+import Row from './Row';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -58,7 +58,7 @@ const TaskTable = ({ users, weeks, tasks }) => {
         </TableHead>
         <TableBody>
           {users.entrySeq().toList().map(([username, results]) => (
-            <TaskTableRow
+            <Row
               key={username}
               username={username}
               results={results || tasks}

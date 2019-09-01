@@ -4,13 +4,13 @@ import { Provider } from 'react-redux';
 
 import './App.css';
 import configureStore from 'app/store/configureStore';
-import TaskTablePage from 'app/task-table/TaskTablePage';
+import Page from 'app/page/Page';
 
 const store = configureStore();
 
 const App = () => (
   <Provider store={store}>
-    <TaskTablePage />
+    <Page />
   </Provider>
 );
 

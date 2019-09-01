@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
-import TaskTableContainer from './TaskTableContainer';
+import ResultTabs from '../tabs/ResultTabs';
+import ResultContainer from './ResultContainer';
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -11,7 +12,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function TaskTablePage() {
+export default function Page() {
   const classes = useStyles();
 
   return (
@@ -19,7 +20,8 @@ export default function TaskTablePage() {
       <Typography className={classes.title} variant="h3" paragraph>
         Yandex JS course 2019
       </Typography>
-      <TaskTableContainer />
+      <ResultTabs />
+      <ResultContainer />
     </Container>
   );
 }

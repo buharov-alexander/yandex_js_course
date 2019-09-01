@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const TaskTableRow = ({ username, results, weekStyle }) => {
+const Row = ({ username, results, weekStyle }) => {
   const classes = useStyles();
 
   return (
@@ -35,10 +35,10 @@ const TaskTableRow = ({ username, results, weekStyle }) => {
   );
 };
 
-TaskTableRow.propTypes = {
+Row.propTypes = {
   username: PropTypes.string.isRequired,
   results: ImmutablePropTypes.list.isRequired,
   weekStyle: PropTypes.func.isRequired,
 };
 
-export default TaskTableRow;
+export default Row;

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import loadData from 'app/actions/dataActions';
-import TaskTable from './TaskTable';
+import Table from 'app/table/Table';
 
-class TaskTableContainer extends PureComponent {
+class ResultContainer extends PureComponent {
   static propTypes = {
     actions: PropTypes.shape({
       loadData: PropTypes.func,
@@ -18,7 +18,7 @@ class TaskTableContainer extends PureComponent {
   }
 
   render() {
-    return <TaskTable {...this.props} />;
+    return <Table {...this.props} />;
   }
 }
 
@@ -27,6 +27,7 @@ function mapStateToProps(state) {
     users: state.users.users,
     weeks: state.tasks.weeks,
     tasks: state.tasks.tasks,
+    tab: state.ui.tab,
   };
 }
 
@@ -38,4 +39,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskTableContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ResultContainer);

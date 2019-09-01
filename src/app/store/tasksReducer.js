@@ -9,7 +9,7 @@ const initialState = {
   tasks: new List(),
 };
 
-export default function movieReducer(state = initialState, action) {
+export default function tasksReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_TASKS: {
       return Object.assign({}, state, action.payload);
