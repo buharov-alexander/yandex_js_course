@@ -15,10 +15,10 @@ const useStyles = makeStyles(() => ({
     backgroundColor: '#FFFFFF',
   },
   partially: {
-    backgroundColor: '#FFF033',
+    backgroundColor: '#f7a531',
   },
   completed: {
-    backgroundColor: '#6EFF33',
+    backgroundColor: '#8acc47',
   },
 }));
 
