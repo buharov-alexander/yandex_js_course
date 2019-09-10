@@ -8,7 +8,7 @@ import {
 
 const parseTasksFile = text => new List(
   yaml.safeLoad(text)
-    .map((weekTasks, index) => ({ name: `Week ${index + 1}`, tasks: weekTasks, index })),
+    .map((weekTasks, index) => ({ name: `Week ${index + 1}`, tasks: new List(weekTasks), index })),
 );
 
 const getTasksFromWeeks = weeks => weeks.reduce((acc, week) => {

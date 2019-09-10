@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { List } from 'immutable';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { makeStyles } from '@material-ui/core/styles';
 import TableRow from '@material-ui/core/TableRow';
@@ -23,16 +22,16 @@ const useStyles = makeStyles(() => ({
 }));
 
 const renderResults = (results, week, classes) => {
-  const tasks = results.filter(res => res.weekIndex === week.index);
-  const completedCount = tasks.filter(task => task.result).size;
+  const completedWeekCount = results.size;
+  const allWeekCount = week.tasks.size;
   let cellClass = classes.partially;
-  let result = `${completedCount}/${tasks.size}`;
-  if (completedCount === 0) {
+  let result = `${completedWeekCount}/${allWeekCount}`;
+  if (completedWeekCount === 0) {
     cellClass = classes.notStarted;
     result = 0;
-  } else if (completedCount === tasks.size) {
+  } else if (completedWeekCount === allWeekCount) {
     cellClass = classes.completed;
-    result = completedCount;
+    result = completedWeekCount;
   }
 
   return (
@@ -44,7 +43,6 @@ const renderResults = (results, week, classes) => {
 
 const Row = ({ username, results, weeks }) => {
   const classes = useStyles();
-  const weekResults = results || new List();
 
   return (
     <TableRow>
@@ -52,9 +50,9 @@ const Row = ({ username, results, weeks }) => {
         {username}
       </TableCell>
       <TableCell component="th" scope="row">
-        {`${weekResults.filter(taskRes => taskRes.result).size}/${weekResults.size}`}
+        {`${results.completedCount}/${results.allCount}`}
       </TableCell>
-      {weeks.map(week => renderResults(weekResults, week, classes))}
+      {weeks.map(week => renderResults(results.weekResults.get(week), week, classes))}
     </TableRow>
   );
 };
@@ -62,7 +60,11 @@ const Row = ({ username, results, weeks }) => {
 Row.propTypes = {
   username: PropTypes.string.isRequired,
   weeks: ImmutablePropTypes.list.isRequired,
-  results: ImmutablePropTypes.list,
+  results: PropTypes.shape({
+    completedCount: PropTypes.number,
+    allCount: PropTypes.number,
+    weekResults: ImmutablePropTypes.map,
+  }).isRequired,
 };
 
 export default Row;
