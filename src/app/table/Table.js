@@ -12,7 +12,7 @@ import Paper from '@material-ui/core/Paper';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 
 import Row from './Row';
-import { COLUMN } from './constants';
+import { COLUMN, DIRECTION } from './constants';
 
 
 const styles = {
@@ -35,7 +35,7 @@ class TaskTable extends PureComponent {
     users: ImmutablePropTypes.map.isRequired,
     weeks: ImmutablePropTypes.list.isRequired,
     direction: PropTypes.string,
-    sortBy: PropTypes.string,
+    sortBy: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     classes: PropTypes.objectOf(PropTypes.string),
   };
 
@@ -68,11 +68,26 @@ class TaskTable extends PureComponent {
       };
     });
 
+  resultComparator = () => {
+    const { sortBy, direction } = this.props;
+    switch (sortBy) {
+      case COLUMN.NAME:
+        return (a, b) => (direction === DIRECTION.ASC ? a.username.localeCompare(b.username) : b.username.localeCompare(a.username));
+      case COLUMN.SUM:
+        return (a, b) => (direction === DIRECTION.ASC ? a.completedCount - b.completedCount : b.completedCount - a.completedCount);
+      default:
+        return (a, b) => {
+          const aCompleted = a.weekResults.get(sortBy).size;
+          const bCompleted = b.weekResults.get(sortBy).size;
+          return direction === DIRECTION.ASC ? aCompleted - bCompleted : bCompleted - aCompleted;
+        };
+    }
+  };
 
   render() {
     const { users, weeks, classes } = this.props;
 
-    const results = this.getResults(weeks, users).sortBy(res => res.username);
+    const results = this.getResults(weeks, users).sort(this.resultComparator());
     return (
       <Paper className={classes.root}>
         <Table className={classes.table}>
@@ -86,7 +101,7 @@ class TaskTable extends PureComponent {
               </TableCell>
               {weeks.map(week => (
                 <TableCell className={classes.cell} key={week.name} align="center">
-                  {this.sortLabel(week.name, week.name)}
+                  {this.sortLabel(week.name, week)}
                 </TableCell>
               ))}
             </TableRow>

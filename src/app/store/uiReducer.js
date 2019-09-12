@@ -9,10 +9,7 @@ const initialState = {
   direction: DIRECTION.DESC,
 };
 
-// eslint-disable-next-line arrow-body-style
-const revert = (direction) => {
-  return direction === DIRECTION.DESC ? DIRECTION.ASC : DIRECTION.DESC;
-};
+const revert = direction => (direction === DIRECTION.DESC ? DIRECTION.ASC : DIRECTION.DESC);
 
 export default function uiReducer(state = initialState, action) {
   switch (action.type) {
