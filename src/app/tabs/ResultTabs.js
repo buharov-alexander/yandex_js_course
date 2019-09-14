@@ -7,7 +7,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 import { CHANGE_TAB } from 'app/actions/actionTypes';
-import { ALL, WEEK } from './constants';
+import { ALL } from './constants';
 
 const useStyles = makeStyles(() => ({
   appBar: {
@@ -23,7 +23,6 @@ const ResultTabs = ({ tab, actions }) => {
       <AppBar className={classes.appBar} position="static">
         <Tabs value={tab} onChange={actions.changeTab}>
           <Tab value={ALL} label="All Weeks" />
-          <Tab value={WEEK} label="Week Details" />
         </Tabs>
       </AppBar>
     </div>
