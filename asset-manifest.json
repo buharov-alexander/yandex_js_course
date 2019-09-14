@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/yandex_js_course/static/css/main.1f3b3d93.chunk.css",
-    "main.js": "/yandex_js_course/static/js/main.61d1335c.chunk.js",
-    "main.js.map": "/yandex_js_course/static/js/main.61d1335c.chunk.js.map",
+    "main.js": "/yandex_js_course/static/js/main.adcce52e.chunk.js",
+    "main.js.map": "/yandex_js_course/static/js/main.adcce52e.chunk.js.map",
     "runtime~main.js": "/yandex_js_course/static/js/runtime~main.f2727716.js",
     "runtime~main.js.map": "/yandex_js_course/static/js/runtime~main.f2727716.js.map",
-    "static/js/2.3e253417.chunk.js": "/yandex_js_course/static/js/2.3e253417.chunk.js",
-    "static/js/2.3e253417.chunk.js.map": "/yandex_js_course/static/js/2.3e253417.chunk.js.map",
+    "static/js/2.9e0cd80d.chunk.js": "/yandex_js_course/static/js/2.9e0cd80d.chunk.js",
+    "static/js/2.9e0cd80d.chunk.js.map": "/yandex_js_course/static/js/2.9e0cd80d.chunk.js.map",
     "index.html": "/yandex_js_course/index.html",
-    "precache-manifest.41d03a455d62cd1ab7c514c43036df06.js": "/yandex_js_course/precache-manifest.41d03a455d62cd1ab7c514c43036df06.js",
+    "precache-manifest.ccbb15100e04c31d866a158db2896b5e.js": "/yandex_js_course/precache-manifest.ccbb15100e04c31d866a158db2896b5e.js",
     "service-worker.js": "/yandex_js_course/service-worker.js",
     "static/css/main.1f3b3d93.chunk.css.map": "/yandex_js_course/static/css/main.1f3b3d93.chunk.css.map",
-    "static/media/tasks.yaml": "/yandex_js_course/static/media/tasks.4c01695d.yaml",
-    "static/media/users.yaml": "/yandex_js_course/static/media/users.8e429045.yaml"
+    "static/media/tasks.yaml": "/yandex_js_course/static/media/tasks.0670676d.yaml",
+    "static/media/users.yaml": "/yandex_js_course/static/media/users.d1d8527d.yaml"
   }
 }
