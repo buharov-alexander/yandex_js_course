@@ -41,13 +41,21 @@ const renderResults = (results, week, classes) => {
   );
 };
 
-const Row = ({ username, results, weeks }) => {
+const renderName = (user) => (
+  <div>
+    <b>{user.displayName}</b>
+    <br />
+    {user.username}
+  </div>
+);
+
+const Row = ({ user, results, weeks }) => {
   const classes = useStyles();
 
   return (
     <TableRow>
       <TableCell component="th" scope="row">
-        {username}
+        {renderName(user)}
       </TableCell>
       <TableCell component="th" scope="row">
         {`${results.completedCount}/${results.allCount}`}
@@ -58,7 +66,7 @@ const Row = ({ username, results, weeks }) => {
 };
 
 Row.propTypes = {
-  username: PropTypes.string.isRequired,
+  user: PropTypes.objectOf(PropTypes.string),
   weeks: ImmutablePropTypes.list.isRequired,
   results: PropTypes.shape({
     completedCount: PropTypes.number,

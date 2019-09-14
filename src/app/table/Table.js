@@ -53,14 +53,14 @@ class TaskTable extends PureComponent {
   }
 
   getResults = (weeks, users) => users.entrySeq().toList()
-    .map(([username, results]) => {
+    .map(([user, results]) => {
       const allResults = results || new List();
       const weekResults = weeks.reduce(
         (acc, week) => acc.set(week, allResults.filter(res => res.weekIndex === week.index && res.result)),
         new Map(),
       );
       return {
-        username,
+        user,
         isLoading: !results,
         completedCount: allResults.filter(taskRes => taskRes.result).size,
         allCount: allResults.size,
@@ -70,16 +70,17 @@ class TaskTable extends PureComponent {
 
   resultComparator = () => {
     const { sortBy, direction } = this.props;
+    const dir = direction === DIRECTION.ASC ? 1 : -1;
     switch (sortBy) {
       case COLUMN.NAME:
-        return (a, b) => (direction === DIRECTION.ASC ? a.username.localeCompare(b.username) : b.username.localeCompare(a.username));
+        return (a, b) => dir * a.user.displayName.localeCompare(b.user.displayName);
       case COLUMN.SUM:
-        return (a, b) => (direction === DIRECTION.ASC ? a.completedCount - b.completedCount : b.completedCount - a.completedCount);
+        return (a, b) => dir * (a.completedCount - b.completedCount);
       default:
         return (a, b) => {
           const aCompleted = a.weekResults.get(sortBy).size;
           const bCompleted = b.weekResults.get(sortBy).size;
-          return direction === DIRECTION.ASC ? aCompleted - bCompleted : bCompleted - aCompleted;
+          return dir * (aCompleted - bCompleted);
         };
     }
   };
@@ -109,8 +110,8 @@ class TaskTable extends PureComponent {
           <TableBody>
             {results.map(userResult => (
               <Row
-                key={userResult.username}
-                username={userResult.username}
+                key={userResult.user.username}
+                user={userResult.user}
                 results={userResult}
                 weeks={weeks}
               />
