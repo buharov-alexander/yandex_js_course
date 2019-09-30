@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/yandex_js_course/static/css/main.1f3b3d93.chunk.css",
-    "main.js": "/yandex_js_course/static/js/main.2b22f04d.chunk.js",
-    "main.js.map": "/yandex_js_course/static/js/main.2b22f04d.chunk.js.map",
+    "main.js": "/yandex_js_course/static/js/main.3e44b15a.chunk.js",
+    "main.js.map": "/yandex_js_course/static/js/main.3e44b15a.chunk.js.map",
     "runtime~main.js": "/yandex_js_course/static/js/runtime~main.f2727716.js",
     "runtime~main.js.map": "/yandex_js_course/static/js/runtime~main.f2727716.js.map",
     "static/js/2.9e0cd80d.chunk.js": "/yandex_js_course/static/js/2.9e0cd80d.chunk.js",
     "static/js/2.9e0cd80d.chunk.js.map": "/yandex_js_course/static/js/2.9e0cd80d.chunk.js.map",
     "index.html": "/yandex_js_course/index.html",
-    "precache-manifest.6cbe26966ac9c143a151512ee445b5d9.js": "/yandex_js_course/precache-manifest.6cbe26966ac9c143a151512ee445b5d9.js",
+    "precache-manifest.4e6c54b9b52f17d9dd96b5d8f1b584a3.js": "/yandex_js_course/precache-manifest.4e6c54b9b52f17d9dd96b5d8f1b584a3.js",
     "service-worker.js": "/yandex_js_course/service-worker.js",
     "static/css/main.1f3b3d93.chunk.css.map": "/yandex_js_course/static/css/main.1f3b3d93.chunk.css.map",
-    "static/media/tasks.yaml": "/yandex_js_course/static/media/tasks.87fc2323.yaml",
+    "static/media/tasks.yaml": "/yandex_js_course/static/media/tasks.22394ca1.yaml",
     "static/media/users.yaml": "/yandex_js_course/static/media/users.d1d8527d.yaml"
   }
 }
