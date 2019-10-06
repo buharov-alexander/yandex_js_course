@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c532f65f9b857c8af1886dc5d94e24a6",
+    "revision": "9d08ba42dc303ba387da32a69b8564ac",
     "url": "/yandex_js_course/index.html"
   },
   {
-    "revision": "3ff2b212ef2a1759419d",
+    "revision": "0daf3e461966f10bfe60",
     "url": "/yandex_js_course/static/css/main.1f3b3d93.chunk.css"
   },
   {
@@ -12,16 +12,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/yandex_js_course/static/js/2.9e0cd80d.chunk.js"
   },
   {
-    "revision": "3ff2b212ef2a1759419d",
-    "url": "/yandex_js_course/static/js/main.3e44b15a.chunk.js"
+    "revision": "0daf3e461966f10bfe60",
+    "url": "/yandex_js_course/static/js/main.31b25d74.chunk.js"
   },
   {
     "revision": "961ceb71f044d65c035c",
     "url": "/yandex_js_course/static/js/runtime~main.f2727716.js"
   },
   {
-    "revision": "22394ca1f1b844f20df53905fee4ae70",
-    "url": "/yandex_js_course/static/media/tasks.22394ca1.yaml"
+    "revision": "2e95eb82dbb92f10ce144b74075835b7",
+    "url": "/yandex_js_course/static/media/tasks.2e95eb82.yaml"
   },
   {
     "revision": "d1d8527d6b3bbbe11e1d53bafc4da463",
